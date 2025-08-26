@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laravel Cheat Sheet</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background-color: #f0f0f0;
+        padding: 30px;
+        color: #333;
+      }
+
+      h1 {
+        text-align: center;
+        color: #6f42c1;
+      }
+
+      h2 {
+        margin-top: 40px;
+        color: #444;
+        border-bottom: 2px solid #ccc;
+        padding-bottom: 5px;
+      }
+
+      pre {
+        background-color: #1e1e1e;
+        color: #d4d4d4;
+        padding: 15px;
+        overflow-x: auto;
+        border-radius: 5px;
+        position: relative;
+      }
+
+      code {
+        font-family: Consolas, monospace;
+        white-space: pre-wrap;
+      }
+
+      .section {
+        margin-bottom: 40px;
+      }
+
+      .copy-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 5px 10px;
+        font-size: 12px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+
+      .copy-btn:hover {
+        background-color: #218838;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>🛠 Tutorials</h1>
+    <div class="section">
+      <h2>📦 How to Prevent Users to Enter Weak Password in Laravel 12 App?</h2>
+      <pre><button class="copy-btn">Copy</button><code>https://www.itsolutionstuff.com/post/how-to-prevent-users-to-enter-weak-password-in-laravel-12-appexample.html</code></pre>
+    </div>
+    <div class="section">
+      <h2>📦 Amazing AI Tools</h2>
+      <pre><button class="copy-btn">Copy</button><code>
+        1-Looka (Logo designing)
+        2-WriteSonic(Content writing SEO Writing)
+        3-Neural.love (Image generator + video generator)
+        4-ideo gram (Image generator)
+      </code></pre>
+    </div>
+    <div class="section">
+      <h2>CI/CD Process</h2>
+      <pre><button class="copy-btn">Copy</button><code>
+            For Staging HRU
+            ===============
+            FTP_SERVER 192.199.243.34
+            FTP_USERNAME hru@sld.devstaging.a2zcreatorz.com
+            FTP_PASSWORD ^guta4^m3qt;b?#P
+            SSH_DIR public_html/state-life-dashboard/ifrap2
+            SSH_USER deve
+            DEPLOY_SERVER_KEY key here......
+            ssh-keygen -t rsa -b 4096 -N "" -f ~/.ssh/github_deploy_key
+            ssh-keygen -t rsa -b 4096 -N "" -f ~/.ssh/hru-github-deployment-key
+      </code></pre>
+    </div>
+    <div class="section">
+      <h2>Spilting Large Data Into Chunck Data</h2>
+      <pre><button class="copy-btn">Copy</button><code>
+            //Split the 53GB File into 10GB Parts 
+            Command
+            split -b 10G pspc-31july2025.zip pspc_07august2025_
+
+            What it does:
+            -b 10G: Splits into chunks of 10GB.
+
+            pspc-31july2025.zip: Your original 53GB file.
+
+            pspc_31july_: Prefix for output files. This will create files like:
+            pspc_31july_aa
+            pspc_31july_ab
+            pspc_31july_ac
+
+
+            //To combine the files back into a single .zip:
+            Command
+            cat pspc_31july_* > pspc-31july2025-merged.zip
+
+
+            Optional: Verify Integrity
+            You can use md5sum to generate a checksum before splitting and after merging:
+
+            Command
+            md5sum pspc-31july2025.zip
+
+            # after merging
+            Command
+            md5sum pspc-31july2025-merged.zip
+
+            If both checksums match, the merge was perfect.
+      </code></pre>
+    </div>
+
+    <div class="section">
+      <h2>🧩 Laravel 12 Generate UUID Example</h2>
+      <pre><button class="copy-btn">Copy</button><code>https://www.itsolutionstuff.com/post/laravel-12-generate-uuid-exampleexample.html</code></pre>
+    </div>
+
+    <div class="section">
+      <h2>🧱 Laravel 12 @when Blade Directive Example</h2>
+      <pre><button class="copy-btn">Copy</button><code>https://www.itsolutionstuff.com/post/laravel-12-when-blade-directive-exampleexample.html</code></pre>
+    </div>
+
+    <div class="section">
+      <h2>🧮 How to Add Toastr Notification in Laravel 12?</h2>
+      <pre><button class="copy-btn">Copy</button><code>https://www.itsolutionstuff.com/post/how-to-add-toastr-notification-in-laravel-12example.html</code></pre>
+    </div>
+
+    <div class="section">
+      <h2>🛠 Laravel 12 Store JSON Format Data in Database Tutorial</h2>
+      <pre><button class="copy-btn">Copy</button><code>https://www.itsolutionstuff.com/post/laravel-12-store-json-format-data-in-database-tutorialexample.html</code></pre>
+    </div>
+
+    <div class="section">
+      <h2>🔁 Tinker (Testing DB)</h2>
+      <pre><button class="copy-btn">Copy</button><code>php artisan tinker
+
+User::all();
+User::create(['name' => 'Ayaz', 'email' => 'a@a.com', 'password' => bcrypt('123456')]);</code></pre>
+    </div>
+
+    <div class="section">
+      <h2>💾 How to Integrate AdminLTE 3 in Laravel 12?</h2>
+      <pre><button class="copy-btn">Copy</button><code>https://www.itsolutionstuff.com/post/how-to-integrate-adminlte-3-in-laravel-12example.html</code></pre>
+    </div>
+
+    <div class="section">
+      <h2>🧪 Validation Example</h2>
+      <pre><button class="copy-btn">Copy</button><code>$request->validate([
+  'name' => 'required|string|max:255',
+  'email' => 'required|email|unique:users',
+]);</code></pre>
+    </div>
+
+    <div class="section">
+      <h2>📤 File Upload</h2>
+      <pre><button class="copy-btn">Copy</button><code>if ($request->hasFile('avatar')) {
+  $path = $request->file('avatar')->store('avatars');
+}</code></pre>
+    </div>
+
+    <div class="section">
+      <h2>📚 Confirmation Before Delete</h2>
+      <pre><button class="copy-btn">Copy</button><code>https://www.itsolutionstuff.com/post/laravel-12-confirm-box-before-delete-record-from-databaseexample.html</code></pre>
+    </div>
+
+    <div class="section">
+      <h2>📚 Forget Password</h2>
+      <pre><button class="copy-btn">Copy</button><code>https://www.itsolutionstuff.com/post/laravel-12-custom-forgot-password-tutorialexample.html</code></pre>
+    </div>
+
+    <div class="section">
+      <h2>📚 Client Side Validation</h2>
+      <pre><button class="copy-btn">Copy</button><code>https://www.itsolutionstuff.com/post/laravel-12-client-side-form-validation-using-jqueryexample.html</code></pre>
+    </div>
+
+    <div class="section">
+      <h2>📚 How to Use Rich Editor in Laravel</h2>
+      <pre><button class="copy-btn">Copy</button><code>https://www.itsolutionstuff.com/post/how-to-use-quill-rich-text-editor-in-laravel-12example.html</code></pre>
+    </div>
+
+    <div class="section">
+      <h2>📚 Many to Many CRUD</h2>
+
+      <!-- Step 1: Create Product Migration -->
+      <h4>Step 1️⃣: Create Product Model & Migration</h4>
+      <pre><button class="copy-btn">Copy</button><code>php artisan make:model Product -m</code></pre>
+
+      <h4>🗃️ Product Migration</h4>
+      <pre><button class="copy-btn">Copy</button><code>use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration {
+    public function up() {
+        Schema::create('products', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->timestamps();
+        });
+    }
+
+    public function down() {
+        Schema::dropIfExists('products');
+    }
+};</code></pre>
+
+      <!-- Step 2: Create Category Migration -->
+      <h4>Step 2️⃣: Create Category Model & Migration</h4>
+      <pre><button class="copy-btn">Copy</button><code>use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration {
+    public function up() {
+        Schema::create('categories', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // ❌ removed ->after('id')
+            $table->string('name');
+            $table->timestamps();
+        });
+    }
+
+    public function down() {
+        Schema::dropIfExists('categories');
+    }
+};
+</code></pre>
+
+      <!-- Step 3: Create Pivot Table -->
+      <h4>Step 3️⃣: Create Pivot Table Migration</h4>
+      <pre><button class="copy-btn">Copy</button><code>php artisan make:migration create_category_product_table --create=category_product</code></pre>
+
+      <h4>🔗 Pivot Table Migration</h4>
+      <pre><button class="copy-btn">Copy</button><code>use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration {
+    public function up() {
+        Schema::create('category_product', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('product_id')->constrained()->onDelete('cascade');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->timestamps();
+        });
+    }
+
+    public function down() {
+        Schema::dropIfExists('category_product');
+    }
+};</code></pre>
+
+      <!-- Step 4: Run Migrations -->
+      <h4>Step 4️⃣: Run Migrations</h4>
+      <pre><button class="copy-btn">Copy</button><code>php artisan migrate</code></pre>
+
+      <!-- Step 5: Define Models -->
+      <h4>Step 5️⃣: Product Model</h4>
+      <pre><button class="copy-btn">Copy</button><code>namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Product extends Model
+{
+    protected $fillable = ['name', 'user_id'];
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+}</code></pre>
+
+      <h4>📦 Category Model</h4>
+      <pre><button class="copy-btn">Copy</button><code>namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Category extends Model
+{
+    protected $fillable = ['name', 'user_id'];
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+}</code></pre>
+
+      <h4>👤 User Model</h4>
+      <pre><button class="copy-btn">Copy</button><code>namespace App\Models;
+
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+class User extends Authenticatable
+{
+    use HasApiTokens, HasFactory, Notifiable;
+
+    protected $fillable = ['name', 'email', 'password'];
+    protected $hidden = ['password', 'remember_token'];
+    protected $casts = ['email_verified_at' => 'datetime'];
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+
+    public function categories()
+    {
+        return $this->hasMany(Category::class);
+    }
+}</code></pre>
+
+      <h4>Step 6: Create Product Controller</h4>
+      <pre><button class="copy-btn">Copy</button><code>php artisan make:Controller ProductController</code></pre>
+
+      <h4>🗃️ Product Controller</h4>
+      <pre><button class="copy-btn">Copy</button><code>
+   
+
+namespace App\Http\Controllers;
+
+use App\Models\Product;
+use App\Models\Category;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+class ProductController extends Controller
+{
+    // 📥 Show Create Form
+    public function create()
+    {
+        $categories = Category::all(); // fetch all categories for checkbox
+        return view('products.create', compact('categories'));
+    }
+
+    // ✅ Store Product with Categories
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'category_ids' => 'required|array',
+            'category_ids.*' => 'exists:categories,id',
+        ]);
+
+        $product = Product::create([
+            'name' => $request->name,
+            'user_id' => Auth::id(), // logged-in user
+        ]);
+
+        // Attach selected categories
+        $product->categories()->attach($request->category_ids);
+
+        return redirect()->route('products.index')->with('success', 'Product added successfully.');
+    }
+
+    // 📄 List All Products
+    public function index()
+    {
+        $products = Product::with('categories', 'user')->latest()->get();
+        return view('products.index', compact('products'));
+    }
+}
+    
+    </code></pre>
+      <h4>Step 7: Create Category Controller</h4>
+      <pre><button class="copy-btn">Copy</button><code>php artisan make:controller CategoryController</code></pre>
+
+      <h4>🗃️ Category Controller</h4>
+      <pre><button class="copy-btn">Copy</button><code>
+   
+
+namespace App\Http\Controllers;
+
+use App\Models\Category;
+use App\Models\Product;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+class CategoryController extends Controller
+{
+    // Show all categories with products
+    public function index()
+    {
+        $categories = Category::with(['user', 'products.user'])->get();
+
+        return view('categories.index', compact('categories'));
+    }
+
+    // Show form to create a new category
+    public function create()
+    {
+        $products=Product::all();
+        return view('categories.create')->with(['products'=>$products]);
+    }
+
+    // Store the new category
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255'
+        ]);
+
+        Category::create([
+            'name' => $request->name,
+            'user_id' => Auth::id(), // Store who created the category
+        ]);
+
+        return redirect()->route('categories.index')->with('success', 'Category created successfully.');
+    }
+
+    // Show a single category with its products
+    public function show(Category $category)
+    {
+        $category->load('products.user');
+
+        return view('categories.show', compact('category'));
+    }
+
+    // Show edit form
+    public function edit(Category $category)
+    {
+        return view('categories.edit', compact('category'));
+    }
+
+    // Update category
+    public function update(Request $request, Category $category)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255'
+        ]);
+
+        $category->update([
+            'name' => $request->name
+        ]);
+
+        return redirect()->route('categories.index')->with('success', 'Category updated successfully.');
+    }
+
+    // Delete category
+    public function destroy(Category $category)
+    {
+        $category->products()->detach(); // Detach all related products
+        $category->delete();
+
+        return redirect()->route('categories.index')->with('success', 'Category deleted successfully.');
+    }
+}
+    
+    </code></pre>
+
+      <h4>Step 8: Create Routes</h4>
+
+      <pre><button class="copy-btn">Copy</button><code>
+   
+
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
+    Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
+    Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+    Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+    Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+    Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+});
+
+    </code></pre>
+
+      <h4>Step 8: categoty list</h4>
+      <p>resources/views/categories/index.blade.php</p>
+
+      <pre><button class="copy-btn">Copy</button><code>
+   
+<pre><code>
+
+&#64;extends('layouts.app')
+
+&#64;section('content')
+&lt;div class="container"&gt;
+    &lt;h2 class="mb-4"&gt;All Categories&lt;/h2&gt;
+
+    &#64;if(session('success'))
+        &lt;div class="alert alert-success"&gt;{{ '{{ session("success") }}' }}&lt;/div&gt;
+    &#64;endif
+
+    &lt;a href="{{ '{{ route("categories.create") }}' }}" class="btn btn-primary mb-3"&gt;Add New Category&lt;/a&gt;
+
+    &#64;if($categories-&gt;count())
+        &lt;table class="table table-bordered"&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;Name&lt;/th&gt;
+                    &lt;th&gt;Created By&lt;/th&gt;
+                    &lt;th&gt;Products&lt;/th&gt;
+                    &lt;th&gt;Actions&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+                &#64;foreach($categories as $category)
+                &lt;tr&gt;
+                    &lt;td&gt;{{ '{{ $category->name }}' }}&lt;/td&gt;
+                    &lt;td&gt;{{ '{{ $category->user->name ?? "N/A" }}' }}&lt;/td&gt;
+                    &lt;td&gt;
+                        &#64;if($category-&gt;products-&gt;count())
+                            &lt;ul&gt;
+                                &#64;foreach($category-&gt;products as $product)
+                                    &lt;li&gt;{{ $product->name }} (by {{ $product->user->name ?? "N/A" }})&lt;/li&gt;
+                                &#64;endforeach
+                            &lt;/ul&gt;
+                        &#64;else
+                            &lt;em&gt;No products&lt;/em&gt;
+                        &#64;endif
+                    &lt;/td&gt;
+                    &lt;td&gt;
+                        &lt;a href="{{ '{{ route("categories.edit", $category) }}' }}" class="btn btn-sm btn-warning"&gt;Edit&lt;/a&gt;
+                        &lt;form action="{{ '{{ route("categories.destroy", $category) }}' }}" method="POST" style="display:inline-block;" onsubmit="return confirm('Are you sure?')"&gt;
+                            &#64;csrf
+                            &#64;method('DELETE')
+                            &lt;button class="btn btn-sm btn-danger"&gt;Delete&lt;/button&gt;
+                        &lt;/form&gt;
+                        &lt;a href="{{ '{{ route("categories.show", $category) }}' }}" class="btn btn-sm btn-info"&gt;View&lt;/a&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                &#64;endforeach
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &#64;else
+        &lt;p&gt;No categories found.&lt;/p&gt;
+    &#64;endif
+&lt;/div&gt;
+&#64;endsection
+
+
+
+</code></pre>
+
+
+
+    </code></pre>
+    </div>
+    <div class="section">
+      <h2>Categoty Create</h2>
+      <pre><button class="copy-btn">Copy</button><code>resources/views/categories/create.blade.php
+&#64;extends('layouts.app')
+&#64;section('content')
+&lt;div class="container"&gt;
+    &lt;h2 class="mb-4"&gt;Add New Category&lt;/h2&gt;
+
+    &#64;if ($errors-&gt;any())
+        &lt;div class="alert alert-danger"&gt;
+            &lt;strong&gt;There were some problems with your input:&lt;/strong&gt;
+            &lt;ul&gt;
+                &#64;foreach ($errors-&gt;all() as $error)
+                    &lt;li&gt;{{ $error }}&lt;/li&gt;
+                &#64;endforeach
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &#64;endif
+
+    &lt;form action="{{route('categories.store')}}" method="POST"&gt;
+        &#64;csrf
+
+        &lt;div class="form-group mb-3"&gt;
+            &lt;label for="name"&gt;Category Name:&lt;/label&gt;
+            &lt;input type="text" name="name" id="name" class="form-control" required value="{{old('name')}}"&gt;
+        &lt;/div&gt;
+
+        &lt;div class="form-group mb-3"&gt;
+            &lt;label for="products"&gt;Assign Products:&lt;/label&gt;
+            &lt;select name="products[]" id="products" class="form-control" multiple&gt;
+                &#64;foreach($products as $product)
+                    &lt;option value="{{ '{{ $product-&gt;id }}' }}"&gt;
+                        {{ '{{ $product-&gt;name }}' }} (by {{ '{{ $product-&gt;user-&gt;name ?? "N/A" }}' }})
+                    &lt;/option&gt;
+                &#64;endforeach
+            &lt;/select&gt;
+            &lt;small class="text-muted"&gt;Hold Ctrl (Windows) or Cmd (Mac) to select multiple.&lt;/small&gt;
+        &lt;/div&gt;
+
+        &lt;button type="submit" class="btn btn-success"&gt;Create Category&lt;/button&gt;
+        &lt;a href="{{route('categories.index')}}" class="btn btn-secondary"&gt;Back&lt;/a&gt;
+    &lt;/form&gt;
+&lt;/div&gt;
+&#64;endsection
+
+
+
+
+      </code></pre>
+    </div>
+
+    <div class="section">
+      <h2>Edit Categoty</h2>
+      <pre><button class="copy-btn">Copy</button><code>resources/views/categories/edit.blade.php
+&#64;extends('layouts.app')
+
+&#64;section('content')
+&lt;div class="container"&gt;
+    &lt;h2 class="mb-4"&gt;Edit Category&lt;/h2&gt;
+
+    &#64;if ($errors-&gt;any())
+        &lt;div class="alert alert-danger"&gt;
+            &lt;strong&gt;There were some problems with your input:&lt;/strong&gt;
+            &lt;ul&gt;
+                &#64;foreach ($errors-&gt;all() as $error)
+                    &lt;li&gt;{{ '{{ $error  }}&lt;/li&gt;
+                &#64;endforeach
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &#64;endif
+
+    &lt;form action="{{ '{{ route("categories.update", $category) }}' }}" method="POST"&gt;
+        &#64;csrf
+        &#64;method('PUT')
+
+        &lt;div class="form-group mb-3"&gt;
+            &lt;label for="name"&gt;Category Name:&lt;/label&gt;
+            &lt;input type="text" name="name" id="name" class="form-control" required value="{{ '{{ old("name", $category-&gt;name) }}' }}"&gt;
+        &lt;/div&gt;
+
+        &lt;div class="form-group mb-3"&gt;
+            &lt;label for="products"&gt;Assign Products:&lt;/label&gt;
+            &lt;select name="products[]" id="products" class="form-control" multiple&gt;
+                &#64;foreach($products as $product)
+                    &lt;option value="{{ '{{ $product-&gt;id }}' }}" 
+                        {{ '{{ in_array($product-&gt;id, $selectedProducts) ? "selected" : "" }}' }}>
+                        {{ '{{ $product-&gt;name }}' }} (by {{ '{{ $product-&gt;user-&gt;name ?? "N/A" }}' }})
+                    &lt;/option&gt;
+                &#64;endforeach
+            &lt;/select&gt;
+        &lt;/div&gt;
+
+        &lt;button type="submit" class="btn btn-primary"&gt;Update Category&lt;/button&gt;
+        &lt;a href="{{ '{{ route("categories.index") }}' }}" class="btn btn-secondary"&gt;Back&lt;/a&gt;
+    &lt;/form&gt;
+&lt;/div&gt;
+&#64;endsection
+
+
+
+
+      </code></pre>
+    </div>
+    <div class="section">
+      <h2>Product List</h2>
+      <pre><button class="copy-btn">Copy</button><code>resources/views/products/list.blade.php
+&#64;extends('layouts.app')
+
+&#64;section('content')
+&lt;div class="container"&gt;
+    &lt;h2 class="mb-4"&gt;All Products&lt;/h2&gt;
+
+    &#64;if(session('success'))
+        &lt;div class="alert alert-success"&gt;{{ '{{ session("success") }}' }}&lt;/div&gt;
+    &#64;endif
+
+    &lt;a href="{{ '{{ route("products.create") }}' }}" class="btn btn-primary mb-3"&gt;Add New Product&lt;/a&gt;
+
+    &#64;if($products-&gt;count())
+        &lt;table class="table table-bordered"&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;Name&lt;/th&gt;
+                    &lt;th&gt;User&lt;/th&gt;
+                    &lt;th&gt;Categories&lt;/th&gt;
+                    &lt;th&gt;Actions&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+                &#64;foreach($products as $product)
+                &lt;tr&gt;
+                    &lt;td&gt;{{ '{{ $product-&gt;name }}' }}&lt;/td&gt;
+                    &lt;td&gt;{{ '{{ $product-&gt;user-&gt;name ?? "N/A" }}' }}&lt;/td&gt;
+                    &lt;td&gt;
+                        &lt;ul&gt;
+                            &#64;foreach($product-&gt;categories as $category)
+                                &lt;li&gt;{{ '{{ $category-&gt;name }}' }}&lt;/li&gt;
+                            &#64;endforeach
+                        &lt;/ul&gt;
+                    &lt;/td&gt;
+                    &lt;td&gt;
+                        &lt;a href="{{ '{{ route("products.edit", $product) }}' }}" class="btn btn-sm btn-warning"&gt;Edit&lt;/a&gt;
+                        &lt;form action="{{ '{{ route("products.destroy", $product) }}' }}" method="POST" style="display:inline-block;" onsubmit="return confirm('Are you sure?')"&gt;
+                            &#64;csrf
+                            &#64;method('DELETE')
+                            &lt;button class="btn btn-sm btn-danger"&gt;Delete&lt;/button&gt;
+                        &lt;/form&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                &#64;endforeach
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &#64;else
+        &lt;p&gt;No products found.&lt;/p&gt;
+    &#64;endif
+&lt;/div&gt;
+&#64;endsection
+
+
+
+
+      </code></pre>
+    </div>
+    <div class="section">
+      <h2>Product Create</h2>
+      <pre><button class="copy-btn">Copy</button><code>resources/views/products/create.blade.php
+&#64;extends('layouts.app')
+
+&#64;section('content')
+&lt;div class="container"&gt;
+    &lt;h2 class="mb-4"&gt;Add New Product&lt;/h2&gt;
+
+    &#64;if ($errors-&gt;any())
+        &lt;div class="alert alert-danger"&gt;
+            &lt;strong&gt;There were some problems with your input:&lt;/strong&gt;
+            &lt;ul&gt;
+                &#64;foreach ($errors-&gt;all() as $error)
+                    &lt;li&gt;{{ $error }}&lt;/li&gt;
+                &#64;endforeach
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &#64;endif
+
+    &lt;form action="{{  route('products.store')  }}" method="POST"&gt;
+        &#64;csrf
+
+        &lt;div class="form-group mb-3"&gt;
+            &lt;label for="name"&gt;Product Name:&lt;/label&gt;
+            &lt;input type="text" name="name" id="name" class="form-control" required value="{{old('name')}}"&gt;
+        &lt;/div&gt;
+
+        &lt;div class="form-group mb-3"&gt;
+            &lt;label for="categories"&gt;Assign Categories:&lt;/label&gt;
+            &lt;select name="categories[]" id="categories" class="form-control" multiple&gt;
+                &#64;foreach($categories as $category)
+                    &lt;option value="{{ '{{ $category-&gt;id }}' }}"&gt;
+                        {{ '{{ $category-&gt;name }}' }}
+                    &lt;/option&gt;
+                &#64;endforeach
+            &lt;/select&gt;
+        &lt;/div&gt;
+
+        &lt;button type="submit" class="btn btn-success"&gt;Create Product&lt;/button&gt;
+        &lt;a href="{{ '{{ route("products.index") }}' }}" class="btn btn-secondary"&gt;Back&lt;/a&gt;
+    &lt;/form&gt;
+&lt;/div&gt;
+&#64;endsection
+
+
+
+      </code></pre>
+    </div>
+    <div class="section">
+      <h2>Product Edit</h2>
+      <pre><button class="copy-btn">Copy</button><code>resources/views/products/edit.blade.php
+&#64;extends('layouts.app')
+
+&#64;section('content')
+&lt;div class="container"&gt;
+    &lt;h2 class="mb-4"&gt;Edit Product&lt;/h2&gt;
+
+    &#64;if ($errors-&gt;any())
+        &lt;div class="alert alert-danger"&gt;
+            &lt;strong&gt;There were some problems with your input:&lt;/strong&gt;
+            &lt;ul&gt;
+                &#64;foreach ($errors-&gt;all() as $error)
+                    &lt;li&gt;{{ $error }}&lt;/li&gt;
+                &#64;endforeach
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &#64;endif
+
+    &lt;form action="{{ '{{ route("products.update", $product) }}' }}" method="POST"&gt;
+        &#64;csrf
+        &#64;method('PUT')
+
+        &lt;div class="form-group mb-3"&gt;
+            &lt;label for="name"&gt;Product Name:&lt;/label&gt;
+            &lt;input type="text" name="name" id="name" class="form-control" required value="{{ '{{ old("name", $product-&gt;name) }}' }}"&gt;
+        &lt;/div&gt;
+
+        &lt;div class="form-group mb-3"&gt;
+            &lt;label for="categories"&gt;Assign Categories:&lt;/label&gt;
+            &lt;select name="categories[]" id="categories" class="form-control" multiple&gt;
+                &#64;foreach($categories as $category)
+                    &lt;option value="{{ '{{ $category-&gt;id }}' }}" 
+                        {{ '{{ in_array($category-&gt;id, $selectedCategories) ? "selected" : "" }}' }}&gt;
+                        {{ '{{ $category-&gt;name }}' }}
+                    &lt;/option&gt;
+                &#64;endforeach
+            &lt;/select&gt;
+        &lt;/div&gt;
+
+        &lt;button type="submit" class="btn btn-primary"&gt;Update Product&lt;/button&gt;
+        &lt;a href="{{ '{{ route("products.index") }}' }}" class="btn btn-secondary"&gt;Back&lt;/a&gt;
+    &lt;/form&gt;
+&lt;/div&gt;
+&#64;endsection
+
+
+
+      </code></pre>
+    </div>
+
+    <script>
+      // Copy button functionality
+      document.querySelectorAll(".copy-btn").forEach((button) => {
+        button.addEventListener("click", () => {
+          const code = button.nextElementSibling.innerText;
+          navigator.clipboard.writeText(code).then(() => {
+            button.innerText = "Copied!";
+            setTimeout(() => (button.innerText = "Copy"), 1500);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
