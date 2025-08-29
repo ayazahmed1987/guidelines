@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Laravel Cheat Sheet</title>
+<title>Packages, Commands and Quires</title>
 <style>
 body {
 font-family: "Segoe UI", sans-serif;
@@ -128,6 +128,83 @@ php artisan migrate
 php artisan migrate:refresh
 php artisan make:migration create_media_table
 php artisan make:model Post -mc
+</code></pre>
+
+</div>
+
+<div class="section">
+<h2>📚 Linux Commands</h2>
+<h4>🗃️ Memory/Disk Usage</h4>
+<pre><button class="copy-btn">Copy</button><code>
+Path
+pwd
+
+Check memory
+free -m
+
+Clear linux Server Cache
+sync; echo 1 > /proc/sys/vm/drop_caches
+
+Check disk usage
+df -h
+
+df -g
+du -sch *
+</code></pre>
+<h4>🗃️ Permission</h4>
+<pre><button class="copy-btn">Copy</button><code>
+find . -type f -exec chmod 644 {} \;              // 644 permission for files
+find . -type d -exec chmod 755 {} \;              // 755 permission for directory 
+find ./var -type d -exec chmod 777 {} \;          // 777 permission for var folder    
+find ./pub/media -type d -exec chmod 777 {} \;
+find ./pub/static -type d -exec chmod 777 {} \;
+chmod 777 ./app/etc
+chmod 644 ./app/etc/*.xml
+chown -R :<web server group> .
+chmod u+x bin/magento
+chown -R :<home/richyemarket/public_html> .
+chown -R :<home/getblanktees/public_html> .
+ 
+==============================
+find ./pub/media/catalog/product -type d -exec chmod 777 {} \;
+find ./pub/media/catalog/product -type f -exec chmod 777 {} \;
+</code></pre>
+<h4>🗃️ Backup/Dump</h4>
+<pre><button class="copy-btn">Copy</button><code>
+unzip static-09-07-2020.zip
+zip -r static-09-07-2020.zip static
+rm -Rf iworx-backup
+
+mysqldump -u [user name] -p[password] [database name] > [dump file]
+mysqldump -u m2com_awaami -p123Pakistan786 m2com_awaami > database-awaami-command-31-01-2020.sql  //Its Working
+
+Restoring a Backup
+mysql server2_richy < database-richy-new-website-command-02-11-2017.sql
+mysql -u wpstaging_magnifi15august2025 -p  wpstaging_magnifi15august2025 < databasemagnifiscience.sql
+
+mysql wpstaging_magnifi15august2025 < /home/wpstaging/public_html/magnifiscience-new/database/magnifiscience.sql
+mysql -u wpstaging_magnifi15august2025 -p  wpstaging_magnifi15august2025 < /home/wpstaging/public_html/magnifiscience-new/database/magnifiscience.sql
+
+ls -lh /home/wpstaging/public_html/magnifiscience-new/database
+mysql -u wpstaging_magnifi15august2025 -p wpstaging_magnifi15august2025 < /home/wpstaging/public_html/magnifiscience-new/database/magnifiscience.sql
+mysql -u wpstaging_magnifi15august2025 -p -e "SHOW DATABASES LIKE 'wpstaging_magnifi15august2025';"
+
+working
+mysql -u wpstaging_magnifi15august2025 -p wpstaging_magnifi15august2025 < /home/wpstaging/public_html/magnifiscience-new/database/magnifiscience.sql
+mysql -u wpstaging_magnifi15august2025 -p wpstaging_magnifi15august2025 < /home/wpstaging/public_html/magnifiscience-new/database/parta.sql
+mysql -u wpstaging_magnifi15august2025 -p wpstaging_magnifi15august2025 < magnifiscience.sql.sql
+
+Copy and replace Command
+========================
+cp -r medianew.zip /home/ace72c41/tsmco.com.pk/html/pub/
+cp -r appnew.zip /home/ace72c41/tsmco.com.pk/html/
+cp -r /home/ace72c41/tsmco.com.pk/html/app-new/code/Safepay /home/ace72c41/tsmco.com.pk/html/app/code/
+cp -r /home/ace72c41/tsmco.com.pk/html/app-new/code /home/ace72c41/tsmco.com.pk/html/app/
+
+Move Folder Cammand
+===================
+$ mv -v /home/ace72c41/tsmco.com.pk/html-live-ayis-damage/ /home/ace72c41/tsmco.com.pk/html/
+$ mv -v dir1 dir2 /path/to/dest/     (Multi Dir Move)
 </code></pre>
 
 </div>

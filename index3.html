@@ -72,6 +72,9 @@ SELECT `survey_form_id` FROM `answers` WHERE `question_id` = 248 AND `survey_for
 SELECT `id` FROM `questions` WHERE `section_id` IN (117, 123, 124, 125);
 SELECT `survey_form_id` FROM `answers` WHERE `question_id` = 248 AND `survey_form_id` IN (SELECT `id` FROM `survey_form` WHERE bank_ac_wise is null);
 
+Multiple select 1 to 50
+SELECT * FROM cataloginventory_stock_item WHERE product_id BETWEEN 405232 AND 405241
+
 SELECT *
 FROM `contructions_answer`
 WHERE `question_id` = 277213
@@ -106,6 +109,9 @@ ON sf.id = ans.survey_form_id
 SET sf.bank_ac_wise = ans.answer
 WHERE ans.question_id = 248
 
+Multiple Update 1 to 50
+UPDATE cataloginventory_stock_item set qty = 100 WHERE product_id BETWEEN 405232 AND 405241
+
 UPDATE `contructions_answer`
 SET answer = JSON_SET(
 		answer,
@@ -125,8 +131,44 @@ AND `question_id` IN (277212,277213,277214,277215)
 AND (JSON_EXTRACT(answer, '$.fetchLocation') IS NULL
 OR JSON_EXTRACT(answer, '$.fetchLocation') = 'null');
 </code></pre>
+<h4>🗃️ CREATE</h4>
+<pre><button class="copy-btn">Copy</button><code>
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL,
+  `fname` varchar(255) NOT NULL,
+  `lname` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `photo` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `fax` varchar(255) NOT NULL,
+  `cell` varchar(255) NOT NULL,
+  `dateofbirth` varchar(255) NOT NULL,
+  `state` varchar(255) NOT NULL,
+  `country` varchar(255) NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `zipcode` varchar(255) NOT NULL,
+  `postalcode` varchar(255) NOT NULL,
+  `religion` varchar(255) NOT NULL,
+  `gender` varchar(255) NOT NULL,
+  `company` varchar(255) NOT NULL,
+  `occupation` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `conf_password` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `information` text NOT NULL,
+  `account_type` varchar(255) NOT NULL,
+  `isvisible` int(1) NOT NULL
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `is_confirmed` tinyint(1) NOT NULL DEFAULT 1,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+</code></pre>
 <h4>🗃️ DELETE</h4>
 <pre><button class="copy-btn">Copy</button><code>
+Multiple delete 1 to 50
+DELETE FROM `mgc2_core_config_data` WHERE `config_id` BETWEEN 1401 AND 1413;
 </code></pre>
 </div>
 
