@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laravel Cheat Sheet</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background-color: #f0f0f0;
+        padding: 30px;
+        color: #333;
+      } 
+
+      h1 {
+        text-align: center;
+        color: #6f42c1;
+      }
+
+      h2 {
+        margin-top: 40px;
+        color: #444;
+        border-bottom: 2px solid #ccc;
+        padding-bottom: 5px;
+      }
+
+      pre {
+        background-color: #1e1e1e;
+        color: #d4d4d4;
+        padding: 15px;
+        overflow-x: auto;
+        border-radius: 5px;
+        position: relative;
+      }
+
+      code {
+        font-family: Consolas, monospace;
+        white-space: pre-wrap;
+      }
+
+      .section {
+        margin-bottom: 40px;
+      }
+
+      .copy-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 5px 10px;
+        font-size: 12px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+
+      .copy-btn:hover {
+        background-color: #218838;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>🛠 Packages, Commands and Quires</h1>
+    <div class="section">
+      <h2>📦 Packages List</h2>
+      <pre><button class="copy-btn">Copy</button><code>
+		"barryvdh/laravel-dompdf": "^3.0",
+		"google/apiclient": "^2.17",
+		"guzzlehttp/guzzle": "^7.2",
+		"ixudra/curl": "*",
+		"laravel/framework": "^10.10",
+		"laravel/helpers": "^1.7",
+		"laravel/sanctum": "^3.2",
+		"laravel/socialite": "^5.8",
+		"laravel/tinker": "^2.9",
+		"laravel/ui": "^4.5",
+		"laravelcollective/html": "^6.4",
+		"livewire/livewire": "^3.5",
+		"maatwebsite/excel": "^3.1",
+		"mailgun/mailgun-php": "^4.3",
+		"mcamara/laravel-localization": "^2.0",
+		"mews/captcha": "^3.3",
+		"nnjeim/world": "^1.1",
+		"simplesoftwareio/simple-qrcode": "^4.2",
+		"spatie/laravel-medialibrary": "^8.7.2",
+		"spatie/laravel-permission": "^6.9",
+		"yajra/laravel-datatables-buttons": "^10.0",
+		"spatie/simple-excel": "^3.7",
+		"spatie/laravel-activitylog": "^4.10",
+		"yajra/laravel-datatables-oracle": "^11.1"
+		"dompdf/dompdf": "^1.1",
+		"fideloper/proxy": "^4.2",
+		"fruitcake/laravel-cors": "^2.0",
+		"twilio/sdk": "^6.37",
+		"yadahan/laravel-authentication-log": "^1.4"
+		"pestphp/pest": "^3.8",
+		"pestphp/pest-plugin-laravel": "^3.2"
+
+		composer require hisorange/browser-detect
+		composer require spatie/laravel-html
+		composer require spatie/laravel-permission
+		composer require spatie/laravel-activitylog
+		composer require spatie/laravel-medialibrary
+		composer require spatie/laravel-responsecache
+</code></pre>
+</div>
+    
+
+    <div class="section">
+      <h2>📚 Commands</h2>
+
+      <h4>🗃️ Special Commands</h4>
+      <pre><button class="copy-btn">Copy</button><code>
+	    php artisan media-library:clean
+		php artisan media-library:clear
+		php artisan media-library:regenerate
+		php artisan responsecache:clear
+	  </code></pre>
+
+      <h4>🗃️ Migration</h4>
+      <pre><button class="copy-btn">Copy</button><code>
+	  php artisan migrate
+	  php artisan migrate:refresh
+	  php artisan make:migration create_media_table
+      php artisan make:model Post -mc
+	  </code></pre>
+
+    </div>
+    
+
+    <script>
+      // Copy button functionality
+      document.querySelectorAll(".copy-btn").forEach((button) => {
+        button.addEventListener("click", () => {
+          const code = button.nextElementSibling.innerText;
+          navigator.clipboard.writeText(code).then(() => {
+            button.innerText = "Copied!";
+            setTimeout(() => (button.innerText = "Copy"), 1500);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
