@@ -173,6 +173,7 @@ find ./pub/media/catalog/product -type f -exec chmod 777 {} \;
 <pre><button class="copy-btn">Copy</button><code>
 unzip static-09-07-2020.zip
 zip -r static-09-07-2020.zip static
+zip -r api-29-08-2025.zip api
 rm -Rf iworx-backup
 
 mysqldump -u [user name] -p[password] [database name] > [dump file]
@@ -205,6 +206,41 @@ Move Folder Cammand
 ===================
 $ mv -v /home/ace72c41/tsmco.com.pk/html-live-ayis-damage/ /home/ace72c41/tsmco.com.pk/html/
 $ mv -v dir1 dir2 /path/to/dest/     (Multi Dir Move)
+</code></pre>
+
+<h4>🗃️ Spilting Large Data Into Chunck Data</h4>
+<pre><button class="copy-btn">Copy</button><code>
+//Split the 53GB File into 10GB Parts 
+Command
+split -b 10G pspc-31july2025.zip pspc_07august2025_
+
+What it does:
+-b 10G: Splits into chunks of 10GB.
+
+pspc-31july2025.zip: Your original 53GB file.
+
+pspc_31july_: Prefix for output files. This will create files like:
+pspc_31july_aa
+pspc_31july_ab
+pspc_31july_ac
+
+
+//To combine the files back into a single .zip:
+Command
+cat pspc_31july_* > pspc-31july2025-merged.zip
+
+
+Optional: Verify Integrity
+You can use md5sum to generate a checksum before splitting and after merging:
+
+Command
+md5sum pspc-31july2025.zip
+
+# after merging
+Command
+md5sum pspc-31july2025-merged.zip
+
+If both checksums match, the merge was perfect.
 </code></pre>
 
 </div>
