@@ -455,7 +455,7 @@ $bulk_survey_id_list = explode(",", $bulk_survey_id);
 @foreach($data->chunk(2) as $chunks)
 @foreach($chunks as $item)
 $isBulkChecked = in_array($item->id, $bulk_survey_id_list ?? []);
-<td><input type="checkbox" value="{{ $item->id }}" class="bulk_survey_id" id="bulk_survey_id" {{ $isBulkChecked ? 'checked' : '' }} /></td>
+&lt;td&gt;&lt;input type="checkbox" value="{{ $item->id }}" class="bulk_survey_id" id="bulk_survey_id" {{ $isBulkChecked ? 'checked' : '' }} /&gt;&lt;/td&gt;
 @endforeach
 @endforeach
 </code></pre>
