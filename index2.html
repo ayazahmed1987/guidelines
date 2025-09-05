@@ -109,6 +109,79 @@ composer require spatie/laravel-responsecache
 composer require spatie/simple-excel
 composer require spatie/laravel-ignition
 </code></pre>
+
+<h2>📦 Swagger (OpenAPI) docs in Laravel, the best package is L5-Swagger</h2>
+<pre><button class="copy-btn">Copy</button><code>
+🚀 Install L5-Swagger in Laravel
+composer require "darkaonline/l5-swagger"
+
+📌 Publish Config & Views
+php artisan vendor:publish --provider "L5Swagger\L5SwaggerServiceProvider"
+
+This will create a config file at:
+config/l5-swagger.php
+
+⚙️ Configuration
+In .env, add:
+L5_SWAGGER_GENERATE_ALWAYS=true
+L5_SWAGGER_CONST_HOST=http://localhost:8000
+
+
+Now Swagger docs will always regenerate when you access the docs URL.
+(Change host according to your app domain.)
+
+🖊 Add Swagger Annotations
+You can add OpenAPI annotations in controllers or models.
+Example for a User API controller:
+
+&lt;?php
+
+namespace App\Http\Controllers\Api;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+/**
+ * @OA\Info(
+ *      version="1.0.0",
+ *      title="Laravel API Swagger Docs",
+ *      description="API documentation with Swagger"
+ * )
+ */
+class UserController extends Controller
+{
+    /**
+     * @OA\Get(
+     *      path="/api/users",
+     *      operationId="getUsersList",
+     *      tags={"Users"},
+     *      summary="Get list of users",
+     *      description="Returns list of users",
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation"
+     *       )
+     *     )
+     */
+    public function index()
+    {
+        return response()->json([
+            ['id' => 1, 'name' => 'John Doe'],
+            ['id' => 2, 'name' => 'Jane Doe'],
+        ]);
+    }
+}
+
+🔄 Generate Documentation
+
+Run:
+php artisan l5-swagger:generate
+
+🌐 Access Swagger UI
+Open in browser:
+
+http://your-app.test/api/documentation
+</code></pre>
 </div>
 
 
