@@ -70,35 +70,36 @@ background-color: #218838;
 <h4>🗃️ Bulk Action Form</h4>
 <pre><button class="copy-btn">Copy</button><code>
 @if(Auth::user()->role == 40 || Auth::user()->role == 36)              
-	<div class="row"><div class="col-md-12">               
-	<form method='post' action='{{route("bulk_damage_action_form_submit")}}'>
+	&lt;div class="row"&gt;&lt;div class="col-md-12"&gt;               
+	&lt;form method='post' action='{{route("bulk_damage_action_form_submit")}}'&gt;
 	@csrf
-	<input type='hidden' name='survey_ids' id='survey_ids' />
-	<input type='hidden' name='bulk_action' id='bulk_action' />
+	&lt;input type='hidden' name='survey_ids' id='survey_ids' /&gt;
+	&lt;input type='hidden' name='bulk_action' id='bulk_action' /&gt;
 
-	<input type='hidden' value='A' name='status' id='status'>
+	&lt;input type='hidden' value='A' name='status' id='status'&gt;
 	@if(Auth::user()->role == 40)
-	<input type='hidden' value='CEO' name='role' id='role'>
+	&lt;input type='hidden' value='CEO' name='role' id='role'&gt;
 	@elseif(Auth::user()->role == 36)
-	<input type='hidden' value='HRU' name='role' id='role'>
+	&lt;input type='hidden' value='HRU' name='role' id='role'&gt;
 	@endif
-	<input type='submit' name='action' value='Approved' class='btn btn-success'>
-	<input type='submit' name='action' value='Reject' class='btn btn-danger'>
-	<input type='submit' name='action' value='Hold' class='btn btn-primary'>
-	</form></div>
+	&lt;input type='submit' name='action' value='Approved' class='btn btn-success'&gt;
+	&lt;input type='submit' name='action' value='Reject' class='btn btn-danger'&gt;
+	&lt;input type='submit' name='action' value='Hold' class='btn btn-primary'&gt;
+	&lt;/form&gt;&lt;/div&gt;
 
-	<div class="col-md-12 text-start">
-	<button class="btn btn-danger bulkselection" data-action="1">Select All</button>
-	<button class="btn btn-danger bulkselection" data-action="0">Deselect All</button>
-	</div>
-	</div> 
+	&lt;div class="col-md-12 text-start"&gt;
+	&lt;button class="btn btn-danger bulkselection" data-action="1"&gt;Select All&lt;/button&gt;
+	&lt;button class="btn btn-danger bulkselection" data-action="0"&gt;Deselect All&lt;/button&gt;
+	&lt;/div&gt;
+	&lt;/div&gt; 
 @endif
 </code></pre>
 
 <h4>🗃️ Jquery Script</h4>
 <pre><button class="copy-btn">Copy</button><code>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" &gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"&gt; &lt;/script&gt;
+&lt;script&gt;
 $(document).ready(function() {
 $('.select2').select2();    
     
@@ -118,9 +119,9 @@ $('.select2').select2();
                  $('.district_list').empty();				 
 				 $('.district_list').html(response);
 				 $('.tehsil_list').empty();				 
-				 $('.tehsil_list').html('<select name="tehsil_id" class="form-control select2" id="tehsil_id"><option value="">Select Tehsil</option></select>');
+				 $('.tehsil_list').html('&lt;select name="tehsil_id" class="form-control select2" id="tehsil_id"&gt;&lt;option value=""&gt;Select Tehsil&lt;/option&gt;&lt;/select&gt;');
                  $('.uc_list').empty();
-                 $('.uc_list').html('<select name="uc_id" class="form-control select2" id="uc_id"><option value="">Select UC</option></select>');				 
+                 $('.uc_list').html('&lt;select name="uc_id" class="form-control select2" id="uc_id"&gt;&lt;option value=""&gt;Select UC&lt;/option&gt;&lt;/select&gt;');
 				 $('.select2').select2();
 				 //filter_data();
 			  },
@@ -143,7 +144,7 @@ $('.select2').select2();
 				 $('.tehsil_list').empty();				 
 				 $('.tehsil_list').html(response);
                  $('.uc_list').empty();
-                 $('.uc_list').html('<select name="uc_id" class="form-control select2" id="uc_id"><option value="">Select UC</option></select>');				 
+                 $('.uc_list').html('&lt;select name="uc_id" class="form-control select2" id="uc_id"&gt;&lt;option value=""&gt;Select UC&lt;/option&gt;&lt;/select&gt;');				 
 				 $('.select2').select2();
 				 filter_data();
 			  },
@@ -178,7 +179,7 @@ $(document).ready(function(){
     filter_data();
     function filter_data(currentpage, ayis_survey_id)
     {
-    $('.filter_data').html('<div id="loading"></div>');
+    $('.filter_data').html('&lt;div id="loading"&gt;&lt;/div&gt;');
 
 var action = 'fetch_data';
 var bulkaction = $("#bulk_action").val();
@@ -196,7 +197,7 @@ $.ajax({
 type: 'POST',
 data:{action:action, bulkaction:bulkaction, bulk_survey_id:bulk_survey_id, sorting:sorting, direction:direction, qty:qty, ayis_page:ayis_page, _token: '{{csrf_token()}}'},
 url: "{{ route('report_survey_datalist_fetch_data') }}",
-		   beforeSend: function(){$('.filter_data').html('<center><img src="{{ asset('images/loading.gif') }}" width="100" alt="Loader" /></center>');},
+		   beforeSend: function(){$('.filter_data').html('&lt;center&gt;&lt;img src="{{ asset('images/loading.gif') }}" width="100" alt="Loader" /&gt;&lt;/center&gt;');},
            success:function(data){
                
                   $('.filter_data').html(data);
@@ -331,7 +332,7 @@ $('body').on('change', '.bulk_survey_id', function(e){
 
 
 });
-
+&lt;/script&gt;
 </code></pre>
 
 </div>
@@ -546,7 +547,7 @@ public function report_survey_datalist_export(Request $request)
 <h4>🗃️ Success</h4>
 <pre><button class="copy-btn">Copy</button><code>
 @if(session('success'))
-        <script>
+        &lt;script&gt;
 
             const Toast = Swal.mixin({
                 toast: true,
@@ -563,13 +564,13 @@ public function report_survey_datalist_export(Request $request)
                 icon: "success",
                 title: "{{ session('success') }}"
             });
-        </script>
+        &lt;/script&gt;
     @endif
 </code></pre>
 <h4>🗃️ Error</h4>
 <pre><button class="copy-btn">Copy</button><code>
 @if(session('error'))
-        <script>
+        &lt;script&gt;
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
@@ -579,7 +580,7 @@ public function report_survey_datalist_export(Request $request)
                 showConfirmButton: false, // Hides the confirm button
                 timer: 3000          // Time to show the toast in milliseconds
             });
-        </script>
+        &lt;/script&gt;
     @endif
 </code></pre>
 </div> 
