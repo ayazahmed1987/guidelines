@@ -548,6 +548,88 @@ class RouteServiceProvider extends ServiceProvider
 
 </code></pre>
 
+<h4>🗃️ Laravel Search Function</h4>
+<pre><button class="copy-btn">Copy</button><code>
+public function searchdata(Request $request){
+    $query = trim($request->input('q'));
+
+    // If query empty → return blank view
+    if (!$query) {
+        $results = collect(); // use collection for consistency
+        return view('frontend.searchresult', compact('results', 'query'));
+    }
+
+    /** -------------------------------
+     * 1️⃣  PAGES
+     * ------------------------------*/
+    $pages = Page::select('id', 'title', 'slug', 'description')
+        ->where(function ($q) use ($query) {
+            $q->where('title', 'like', "%{$query}%")
+              ->orWhere('description', 'like', "%{$query}%");
+        })
+        ->get()
+        ->map(function ($item) {
+            return (object) [
+                'title' => $item->title,
+                'type'  => 'page',
+                'url'   => route('website.page.show', $item->slug),
+            ];
+        });
+
+
+    /** -------------------------------
+     * 2️⃣  CUSTOM POST DATA — NEWS/EVENT
+     * ------------------------------*/
+    $news_event = CustomPostData::select('id', 'custom_post_id', 'fields_data')
+        ->where('custom_post_id', 2)
+        ->get()
+        ->filter(function ($item) use ($query) {
+            $title = data_get($item->fields_data, 'title', '');
+            $desc  = data_get($item->fields_data, 'description', '');
+            return str_contains(strtolower($title . ' ' . $desc), strtolower($query));
+        })
+        ->map(function ($item) {
+            $title = data_get($item->fields_data, 'title', '');
+            return (object) [
+                'title' => $title,
+                'type'  => 'news',
+                'url'   => route('website.post.show', [$item->id, Str::slug($title)]),
+            ];
+        });
+
+
+    /** -------------------------------
+     * 3️⃣  CUSTOM POST DATA — TEAMS
+     * ------------------------------*/
+    $teams = CustomPostData::select('id', 'custom_post_id', 'fields_data')
+        ->where('custom_post_id', 4)
+        ->get()
+        ->filter(function ($item) use ($query) {
+            $name    = data_get($item->fields_data, 'name', '');
+            $content = data_get($item->fields_data, 'content', '');
+            return str_contains(strtolower($name . ' ' . $content), strtolower($query));
+        })
+        ->map(function ($item) {
+            $name = data_get($item->fields_data, 'name', '');
+            return (object) [
+                'title' => $name,
+                'type'  => 'teams',
+                'url'   => route('website.post.show', [$item->id, Str::slug($name)]),
+            ];
+        });
+
+
+    /** -------------------------------
+     * 4️⃣  Combine All Results
+     * ------------------------------*/
+    $results = $pages->concat($news_event)->concat($teams);
+
+    return view('frontend.searchresult', compact('results', 'query'));
+    }
+
+
+</code></pre>
+
 <h4>🗃️ Laravel Helper Function</h4>
 <pre><button class="copy-btn">Copy</button><code>
 if(!function_exists('FormatLink'))
