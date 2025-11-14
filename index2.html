@@ -330,6 +330,93 @@ MAIL_ENCRYPTION=null
 MAIL_FROM_ADDRESS=ayaz.a2zcreatorz@gmail.com
 MAIL_FROM_NAME="${APP_NAME}"
 
+
+APP_NAME=AYIS
+APP_ENV=local
+APP_KEY=base64:s+mtcr0asxh6iaKqkYyTkxPkEYwWG4EhRxOiOsOD345=
+APP_DEBUG=true
+APP_URL=https://abc.com
+ASSET_URL=https://abc.com/public
+APP_TIMEZONE='Asia/Karachi'
+
+LOG_CHANNEL=stack
+LOG_DEPRECATIONS_CHANNEL=null
+LOG_LEVEL=debug
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=database
+DB_USERNAME=root
+DB_PASSWORD=pass
+
+DB_AGENT=agentdbnew
+
+DB_DIGITAL=admin_beta
+DB_DIGITAL_USERNAME=betdigi
+DB_DIGITAL_PASSWORD=91*Dd0sh5
+
+# 👇 Extra safety + performance options
+DB_POOLING=true
+DB_RECONNECT=true
+
+# Reduce idle timeout (MySQL closes idle connections)
+DB_SOCKET_TIMEOUT=30
+DB_CONNECT_TIMEOUT=10
+
+# Persistent connection support (optional, for shared hosting)
+DB_PERSISTENT=true
+
+# Make sure Laravel reconnects automatically if MySQL drops connection
+DB_RETRY_ON_FAILURE=true
+
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+FILESYSTEM_DISK=local
+QUEUE_CONNECTION=sync
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+
+MEMCACHED_HOST=127.0.0.1
+
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+
+MAIL_MAILER=smtp
+MAIL_HOST=secure.emailsrvr.com
+MAIL_PORT=465
+MAIL_USERNAME='noreply@abc.com'
+MAIL_PASSWORD='347d2wgehdf#cdfg'
+MAIL_ENCRYPTION=ssl
+MAIL_FROM_ADDRESS=noreply@abc.com
+MAIL_FROM_NAME="${APP_NAME}" 
+	
+
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_DEFAULT_REGION=us-east-1
+AWS_BUCKET=
+AWS_USE_PATH_STYLE_ENDPOINT=false
+
+PUSHER_APP_ID=
+PUSHER_APP_KEY=
+PUSHER_APP_SECRET=
+PUSHER_HOST=
+PUSHER_PORT=443
+PUSHER_SCHEME=https
+PUSHER_APP_CLUSTER=mt1
+
+VITE_APP_NAME="${APP_NAME}"
+VITE_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
+VITE_PUSHER_HOST="${PUSHER_HOST}"
+VITE_PUSHER_PORT="${PUSHER_PORT}"
+VITE_PUSHER_SCHEME="${PUSHER_SCHEME}"
+VITE_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
+
+
+
+
 </code></pre>
 
 <h4>🗃️ Laravel VIEW Service Provider</h4>
@@ -416,6 +503,91 @@ class ViewServiceProvider extends ServiceProvider
 		
     }
 }
+
+</code></pre>
+
+<h4>🗃️ Laravel RouteServiceProvider</h4>
+<pre><button class="copy-btn">Copy</button><code>
+namespace App\Providers;
+
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\ServiceProvider;
+
+class RouteServiceProvider extends ServiceProvider
+{
+    /**
+     * Register services.
+     */
+    public function register(): void
+    {
+        //
+    }
+
+    /**
+     * Bootstrap services.
+     */
+    public function boot(): void
+    {
+        // Default web routes
+        //Route::middleware('web')
+            //->group(base_path('routes/web.php'));
+
+        // Default API routes (optional)
+        //Route::middleware('api')
+            //->prefix('api')
+            //->group(base_path('routes/api.php'));
+
+        // ✅ Custom admin routes
+        Route::middleware('web')->prefix('manager') //['web', 'auth'] //a2zxpspc@123
+		//Route::prefix('manager')
+            ->name('manager.')
+            ->group(base_path('routes/admin.php'));
+    }
+}
+
+
+</code></pre>
+
+<h4>🗃️ Laravel Helper Function</h4>
+<pre><button class="copy-btn">Copy</button><code>
+if(!function_exists('FormatLink'))
+{
+    function FormatLink($link) {
+        if (Str::startsWith($link, 'route:')) {
+            try{
+                $parts = explode('||', $link);
+                $routeName = Str::after(array_shift($parts), 'route:');
+                return route($routeName, $parts[0]);
+            }catch(\Exception $e){
+                return "#";
+            }
+        }
+        return $link;
+    }
+}
+
+if (!function_exists('vrc_committee_members')) {
+    function vrc_committee_members()
+    {
+        $cacheKey = "vrc_committee_members";
+
+        return Cache::remember($cacheKey, now()->addMinutes(5), function () {
+            return DB::table('vrc_committee')->count();
+        });
+    }
+}
+
+
+if(!function_exists('pre_print'))
+{
+function pre_print($data)
+{
+    echo '<pre>';
+    print_r(json_decode(json_encode($data)));
+    exit;
+}
+}
+
 
 </code></pre>
 
