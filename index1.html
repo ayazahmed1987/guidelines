@@ -110,7 +110,7 @@ Call Like this in Blade
 <div class="section">
 <h2>📚 Github Deployment Pipeline</h2>
 
-<h4>🗃️ Steps</h4>
+<h4>🗃️ Steps 1</h4>
 <pre><button class="copy-btn">Copy</button><code>
 GitHub repo creation
 Branch structure
@@ -121,6 +121,17 @@ Folder structure
 Complete commands
 Ready-to-use workflow files
 Aap bas niche ka setup follow karo — ye company-level CI/CD pipeline hai.
+</code></pre>
+
+<h4>🗃️ Create Pull Request Steps 2</h4>
+<pre><button class="copy-btn">Copy</button><code>
+1️⃣ staging branch me code push karo
+2️⃣ GitHub → Pull Request → New PR
+3️⃣ base = main
+4️⃣ compare = staging
+5️⃣ Create PR
+6️⃣ Approve
+7️⃣ Merge → LIVE deploy automatically!
 </code></pre>
 
 <h4>🚀 1. GitHub Repo Create Karein (Initial)</h4>
@@ -278,6 +289,112 @@ GitHub par Pull Request banao:
 staging → main
 
 → Merge → Live auto update
+
+Detail mn 
+🚀 GitHub Par Pull Request Kaise Banaye (staging → main)
+
+Follow each step:
+
+✅ Step 1: GitHub Repo Open Karo
+
+Browser me GitHub repo open karo:
+
+Example:
+
+https://github.com/USERNAME/my-laravel-project
+
+✅ Step 2: “Pull Requests” Tab Par Click Karo
+
+Repo top menu me aapko ek tab milega:
+
+Code | Issues | Pull requests | Actions | ...
+
+
+Yahan Pull requests par click karo.
+
+✅ Step 3: “New Pull Request” Button Par Click Karo
+
+Ye green color ka button hota hai:
+
+New Pull Request
+
+
+Is par click karo.
+
+✅ Step 4: Compare Branches Select Karo
+
+Ab aapko 2 dropdown dikhai denge:
+
+LEFT side = base branch (jisme merge hoga)
+
+yahan select karo:
+
+main
+
+RIGHT side = compare branch (jisse merge hoga)
+
+yahan select karo:
+
+staging
+
+
+Final selection:
+
+base: main   ←   compare: staging
+
+
+Yeh bahut important step hai!
+
+❗ Agar sahi set hoga to GitHub ye line dikhayega:
+“Able to merge”
+
+Matlab merge safe hai.
+
+✅ Step 5: “Create Pull Request” Green Button Par Click Karo
+
+Click karte hi ek new page open hoga jahan PR ka title aur description likh sakte ho.
+
+✅ Step 6: Title Likho
+
+Example:
+
+Update Staging Changes to Main
+
+
+Description likhna optional hai, but recommended:
+
+All changes tested on staging. Ready to deploy on production.
+
+✅ Step 7: “Create Pull Request” Final Button Par Click Karo
+
+Ab Pull Request officially create ho gaya hai.
+
+🚀 Step 8: Review + Approve (Agar branch protected hai)
+
+Agar aap ne branch protection enable kiya ho to:
+
+PR ko approve karna padega:
+
+“Review changes” button click karo
+
+“Approve” select karo
+
+“Submit review” click karo
+
+🚀 Step 9: Merge Pull Request (Live Server Auto Update)
+
+PR page par green button dikhai dega:
+
+Merge pull request
+
+
+Is par click karo → phir click karo:
+
+Confirm merge
+
+✔ Ab GitHub Actions automatically production server update karega
+✔ LIVE website auto-deploy ho jayegi
+
 </code></pre>
 
 <h4>🎉 Your Full Professional CI/CD Pipeline READY!</h4>
