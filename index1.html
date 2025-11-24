@@ -107,6 +107,186 @@ Call Like this in Blade
 </div> 
 
 
+<div class="section">
+<h2>📚 Github Deployment Pipeline</h2>
+
+<h4>🗃️ Steps</h4>
+<pre><button class="copy-btn">Copy</button><code>
+GitHub repo creation
+Branch structure
+Staging + Production servers setup
+GitHub Actions automation
+Branch protection
+Folder structure
+Complete commands
+Ready-to-use workflow files
+Aap bas niche ka setup follow karo — ye company-level CI/CD pipeline hai.
+</code></pre>
+
+<h4>🚀 1. GitHub Repo Create Karein (Initial)</h4>
+<pre><button class="copy-btn">Copy</button><code>
+git init
+git add .
+git commit -m "initial commit"
+git branch -M main
+git remote add origin https://github.com/USERNAME/my-laravel-project.git
+git push -u origin main
+</code></pre>
+
+<h4>🚀 2. Staging Branch Create Karein</h4>
+<pre><button class="copy-btn">Copy</button><code>
+git checkout -b staging
+git push -u origin staging
+</code></pre>
+
+<h4>🚀 3. Server Directory Setup (Dono servers par)</h4>
+<pre><button class="copy-btn">Copy</button><code>
+Staging server:
+/var/www/staging/
+
+Live server:
+/var/www/live/
+
+
+Dono par:
+
+sudo chown -R deploy:www-data /var/www/staging
+sudo chown -R deploy:www-data /var/www/live
+
+Aur project clone karein:
+
+Staging:
+cd /var/www/staging
+git clone https://github.com/USERNAME/my-laravel-project.git .
+git checkout staging
+
+Live:
+cd /var/www/live
+git clone https://github.com/USERNAME/my-laravel-project.git .
+git checkout main
+</code></pre>
+
+<h4>🚀 4. GitHub Actions Folder Create Karein</h4>
+<pre><button class="copy-btn">Copy</button><code>
+.github/workflows/
+Iske andar 2 files honi chahiye:
+
+staging.yml
+production.yml
+</code></pre>
+
+<h4>🚀 5. READY WORKFLOW FILES staging.yml (Copy-Paste & DONE)</h4>
+<pre><button class="copy-btn">Copy</button><code>
+name: Deploy to Staging
+
+on:
+  push:
+    branches:
+      - staging
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to staging via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.STAGING_HOST }}
+          username: ${{ secrets.STAGING_USER }}
+          key: ${{ secrets.STAGING_KEY }}
+          script: |
+            cd /var/www/staging
+            git pull origin staging
+            composer install
+            php artisan migrate --force
+            php artisan optimize:clear
+
+</code></pre>
+
+<h4>🚀 5. READY WORKFLOW FILES production.yml (Copy-Paste & DONE)</h4>
+<pre><button class="copy-btn">Copy</button><code>
+name: Deploy to Production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to production via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.PROD_HOST }}
+          username: ${{ secrets.PROD_USER }}
+          key: ${{ secrets.PROD_KEY }}
+          script: |
+            cd /var/www/live
+            git pull origin main
+            composer install --no-dev
+            php artisan migrate --force
+            php artisan optimize:clear
+
+
+</code></pre>
+
+<h4>🚀 6. GitHub Secrets Add Karein</h4>
+<pre><button class="copy-btn">Copy</button><code>
+GitHub → Repo → Settings → Secrets → Actions
+
+Add:
+Staging:
+STAGING_HOST
+STAGING_USER
+STAGING_KEY
+
+Production:
+PROD_HOST
+PROD_USER
+PROD_KEY
+</code></pre>
+
+<h4>🚀 7. LIVE Branch Protection On Karein</h4>
+<pre><button class="copy-btn">Copy</button><code>
+GitHub → Settings → Branches → Add Rule
+
+Branch name:
+main
+
+
+Select:
+✔ Require pull request
+✔ Require 1 approval
+✔ Block direct pushes
+
+➡ Ab live server kabhi galti se update nahi hoga!
+</code></pre>
+
+<h4>🚀 8. Full Deployment Workflow (As a Developer)</h4>
+<pre><button class="copy-btn">Copy</button><code>
+🔵 Step-1 → Code Staging par bhejo:
+git push origin staging
+
+→ Staging auto update
+
+🟢 Step-2 → Test OK? Then staging ko main me merge:
+GitHub par Pull Request banao:
+staging → main
+
+→ Merge → Live auto update
+</code></pre>
+
+<h4>🎉 Your Full Professional CI/CD Pipeline READY!</h4>
+<pre><button class="copy-btn">Copy</button><code>
+Ye exactly wahi setup hai jo companies production me use karti hain.
+</code></pre>
+</div> 
+
+
 <script>
 // Copy button functionality
 document.querySelectorAll(".copy-btn").forEach((button) => {
