@@ -583,6 +583,35 @@ public function report_survey_datalist_export(Request $request)
         &lt;/script&gt;
     @endif
 </code></pre>
+
+<h4>🗃️ Log Route</h4>
+<pre><button class="copy-btn">Copy</button><code>
+Route::get('/logs', function () {
+    try {
+        $logFile = file(storage_path() . '/logs/laravel.log');
+        if ($logFile) {
+            $logCollection = [];
+            foreach ($logFile as $line_num => $line) {
+                $logCollection[] = array('line' => $line_num, 'content' => htmlspecialchars($line));
+            }
+            return $logCollection;
+        }
+    } catch (\Exception $e) {
+        return "no file found";
+    }
+})->name('logs.read');
+
+Route::get('/logs/clear', function () {
+    $logPath = storage_path('logs/laravel.log');
+    if (File::exists($logPath)) {
+        File::put($logPath, '');
+    }
+    return redirect()->route('logs.read')->with('status', 'Log file cleared.');
+})->name('logs.clear');
+</code></pre>
+
+
+
 </div> 
 
 
