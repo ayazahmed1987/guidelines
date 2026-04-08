@@ -226,6 +226,33 @@ df -h
 df -g
 du -sch *
 </code></pre>
+<h4>🗃️ Check Malware and Malicious Code</h4>
+<pre><button class="copy-btn">Copy</button><code>
+eizo.co.me (domain name)
+atob
+eval
+base64_decode
+# Infected files dhundne ke liye
+grep -rnw '/home/eizoco/public_html/' -e 'eizo.co.me'
+grep -rnw '/home/eizoco/public_html/' --exclude-dir={vendor,node_modules,.git} -e 'eizo.co.me'
+grep -rnw '/home/eizoco/public_html/' -e 'eval'
+grep -rnw '/home/eizoco/public_html/' --exclude-dir={vendor,node_modules,.git} -e 'eval'
+grep -rnw '/home/eizoco/public_html/' -e 'base64_decode'
+grep -rnw '/home/eizoco/public_html/' --exclude-dir={vendor,node_modules,.git} -e 'base64_decode'
+grep -rnw '/home/eizoco/public_html/' -e 'atob'
+grep -rnw '/home/eizoco/public_html/' --exclude-dir={vendor,node_modules,.git} -e 'atob'
+
+grep -rnw '/home/eizoco/public_html/public/' -e 'eizo.co.me'
+grep -rnw '/home/eizoco/public_html/resources/views/' -e 'eizo.co.me'
+grep -rnw '/home/eizoco/public_html/app/' -e 'eizo.co.me'
+grep -rnw '/home/eizoco/public_html/' -e 'INJECT_MARKER'
+
+find /home/eizoco/public_html/ -mtime -2 -ls //2 din pehlay
+find /home/eizoco/public_html/ -mtime -10 -ls //10 din pehlay
+
+Yeh command aapko sirf un files ke naam bataye gi jo pichle 10 din mein modify huin aur jin mein woh suspicious obfuscated code maujood hai.
+grep -l "_0x" $(find /home/eizoco/public_html/ -mtime -10 -type f)
+</code></pre>
 <h4>🗃️ Permission</h4>
 <pre><button class="copy-btn">Copy</button><code>
 find . -type f -exec chmod 644 {} \;              // 644 permission for files
